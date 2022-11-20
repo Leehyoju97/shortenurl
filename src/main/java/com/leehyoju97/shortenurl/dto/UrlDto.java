@@ -1,6 +1,7 @@
 package com.leehyoju97.shortenurl.dto;
 
 import lombok.*;
+
 import javax.validation.constraints.NotBlank;
 
 @Getter

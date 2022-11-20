@@ -6,21 +6,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script type="text/javascript">
-        function convert(){
+        function convert() {
             let text = $("#url_input").val();
             if (!(text.startsWith("https://") || text.startsWith("http://"))) {
                 alert("http:// or https:// 로 시작해야합니다");
                 return false;
             }
             $.ajax({
-                type : 'POST',
-                url : '/api',
-                data : JSON.stringify({
-                    "originalUrl" : text
+                type: 'POST',
+                url: '/api',
+                data: JSON.stringify({
+                    "originalUrl": text
                 }),
-                contentType : "application/json; charset=utf-8",
-                success : function (data) {
-                    $("#result").html("<a href=" + data.shortUrl+ ">변경 URL : " + data.shortUrl + "</a>");
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("#result").html("<a href=" + data.shortUrl + ">변경 URL : " + data.shortUrl + "</a>");
                 }
             });
         }

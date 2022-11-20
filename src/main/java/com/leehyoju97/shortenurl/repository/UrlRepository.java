@@ -38,7 +38,7 @@ public class UrlRepository {
     private String urlDuplicateValidate(String originalUrl, int position) {
         String shortUrl = Sha256.encode(originalUrl, position);
 
-        while(isExistByShortUrl(shortUrl)) {
+        while (isExistByShortUrl(shortUrl)) {
             shortUrl = Sha256.encode(originalUrl, ++position);
         }
 
