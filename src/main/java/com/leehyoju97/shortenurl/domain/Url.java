@@ -11,9 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Url {
 
-    private int id;
-    private String originalUrl;
     private String shortUrl;
-    private int count;
+    private String originalUrl;
+    private int requestCount;
 
 }

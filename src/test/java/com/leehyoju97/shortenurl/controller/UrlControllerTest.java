@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -40,5 +41,14 @@ class UrlControllerTest {
                 .andDo(print())
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("shortUrl").value("http://localhost:8090/api/U3kwVkxy"));
+    }
+
+    @Test
+    public void url실행테스트() throws Exception {
+
+        String shortUrl = "http://localhost:8090/api/U3kwVkxy";
+
+        mockMvc.perform(get(shortUrl))
+                .andExpect(status().is3xxRedirection());
     }
 }

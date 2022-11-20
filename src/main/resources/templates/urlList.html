@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>shortUrl : </th>
+                <th>originalUrl : </th>
+                <th>requestCount : </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="listUrl : ${listUrl}">
+                <td th:text="${listUrl.getShortUrl()}"></td>
+                <td th:text="${listUrl.getOriginalUrl()}"></td>
+                <td th:text="${listUrl.getRequestCount()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
